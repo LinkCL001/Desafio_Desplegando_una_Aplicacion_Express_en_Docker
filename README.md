@@ -23,26 +23,25 @@ Antes de correr este proyecto asegúrate de tener esta tabla creada
 ```sql
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS todos (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    username TEXT UNIQUE NOT NULL,
-    email TEXT UNIQUE NOT NULL,
-    password TEXT NOT NULL,
+    nombre VARCHAR(25),
+    descripcion VARCHAR(255),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
 );
 ```
 
 ## Correr localmente
 
-Primero editáis el .env con tus propios datos
+Primero editar el .env con tus propios datos
 
 ```bash
 npm i
 
-# correr normalmente
+# start correr con normalidad
 npm start
 
-# o si quieres seguir desarrollando
+# si quieres seguir desarrollando
 npm run dev
 ```
 

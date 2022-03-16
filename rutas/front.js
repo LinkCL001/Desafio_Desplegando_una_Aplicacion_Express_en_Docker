@@ -7,17 +7,17 @@ router.get("/", async (_, res) => {
   res.render("home", { users: await db.listar() })
 })
 
-router.get("/user-create", (_, res) => {
+router.get("/todo-create", (_, res) => {
   res.render("create")
 })
 
-router.post("/user-create", (req, res) => {
+router.post("/todo-create", (req, res) => {
   db.ingresar(req.body)
     .then(() => res.redirect("/"))
     .catch((err) => res.render("error", { title: "Error al crear usuario", message: err }))
 })
 
-router.get("/user-delete/:id", async (req, res) => {
+router.get("/todo-delete/:id", async (req, res) => {
   const { id } = req.params
   const { confirmado } = req.query
 
